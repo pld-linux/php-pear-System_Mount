@@ -1,11 +1,11 @@
 %include	/usr/lib/rpm/macros.php
-%define         _class          System
-%define         _subclass       Mount
+%define		_class		System
+%define		_subclass	Mount
 %define		_status		stable
 %define		_pearname	%{_class}_%{_subclass}
 
-Summary:	%{_pearname} - Mount and unmount devices in fstab
-Summary(pl):	%{_pearname} - Montowanie i odmontowywanie urz±dzeñ z fstab
+Summary:	%{_pearname} - mount and unmount devices in fstab
+Summary(pl):	%{_pearname} - montowanie i odmontowywanie urz±dzeñ z fstab
 Name:		php-pear-%{_pearname}
 Version:	1.0.0
 Release:	1

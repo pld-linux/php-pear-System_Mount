@@ -8,7 +8,7 @@ Summary:	%{_pearname} - mount and unmount devices in fstab
 Summary(pl):	%{_pearname} - montowanie i odmontowywanie urz±dzeñ z fstab
 Name:		php-pear-%{_pearname}
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz

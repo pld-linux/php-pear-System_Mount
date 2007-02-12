@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - mount and unmount devices in fstab
-Summary(pl):	%{_pearname} - montowanie i odmontowywanie urz±dzeñ z fstab
+Summary(pl.UTF-8):   %{_pearname} - montowanie i odmontowywanie urzÄ…dzeÅ„ z fstab
 Name:		php-pear-%{_pearname}
 Version:	1.0.0
 Release:	4
@@ -39,16 +39,16 @@ Features:
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
+%description -l pl.UTF-8
 System_Mount dostarcza prostego interfejsu do radzenia sobie z
-montowaniem i odmontowywaniem urz±dzeñ wpisanych w pliku fstab.
+montowaniem i odmontowywaniem urzÄ…dzeÅ„ wpisanych w pliku fstab.
 
 Cechy:
 - Bardzo prosty, czytelny kod bazowany na File-Fstab,
-- Bada opcje mount w celu stwierdzenia czy urz±dzenie mo¿e byæ
+- Bada opcje mount w celu stwierdzenia czy urzÄ…dzenie moÅ¼e byÄ‡
   zamontowane lub nie,
-- Niewiarygodnie ³atwy w u¿yciu,
-- W pe³ni udokumentowany za pomoc± PHPDoc.
+- Niewiarygodnie Å‚atwy w uÅ¼yciu,
+- W peÅ‚ni udokumentowany za pomocÄ… PHPDoc.
 
 Ta klasa ma w PEAR status: %{_status}.
 

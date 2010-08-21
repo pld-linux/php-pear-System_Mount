@@ -3,12 +3,11 @@
 %define		_subclass	Mount
 %define		_status		stable
 %define		_pearname	%{_class}_%{_subclass}
-
 Summary:	%{_pearname} - mount and unmount devices in fstab
 Summary(pl.UTF-8):	%{_pearname} - montowanie i odmontowywanie urządzeń z fstab
 Name:		php-pear-%{_pearname}
 Version:	1.0.0
-Release:	5
+Release:	6
 License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -18,8 +17,9 @@ BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-pear
-Requires:	php-pear-File_Fstab >= 2.0.0beta1
+Requires:	php-pear-File_Fstab >= 2.0.0-0.beta1
 Requires:	php-pear-System_Command
+Suggests:	php-pear-File
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

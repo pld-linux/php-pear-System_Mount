@@ -1,21 +1,19 @@
 %include	/usr/lib/rpm/macros.php
-%define		_class		System
-%define		_subclass	Mount
 %define		_status		stable
-%define		_pearname	%{_class}_%{_subclass}
+%define		_pearname	System_Mount
 Summary:	%{_pearname} - mount and unmount devices in fstab
 Summary(pl.UTF-8):	%{_pearname} - montowanie i odmontowywanie urządzeń z fstab
 Name:		php-pear-%{_pearname}
-Version:	1.0.0
-Release:	6
+Version:	1.0.1
+Release:	1
 License:	PHP 3.0
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	cf195029ce8274d1b1fd4e5412e290cc
+# Source0-md5:	c4d586a8cc91e056cf311ae89c9c1341
 URL:		http://pear.php.net/package/System_Mount/
-BuildRequires:	php-pear-PEAR
+BuildRequires:	php-pear-PEAR >= 1:1.4.0-0.b1
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.571
 Requires:	php-pear
 Requires:	php-pear-File_Fstab >= 2.0.0-0.beta1
 Requires:	php-pear-System_Command
@@ -24,7 +22,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # exclude optional dependencies
-%define		_noautoreq	'pear(File.*)'
+%define		_noautoreq	pear(File.*)
 
 %description
 System_Mount provides a simple interface to deal with mounting and
@@ -55,26 +53,28 @@ Ta klasa ma w PEAR status: %{_status}.
 %prep
 %pear_package_setup
 
-# pear/docs -> docs
-install -d docs/%{_pearname}
-mv ./%{php_pear_dir}/docs/%{_pearname}/* docs/%{_pearname}
+install -d examples
+mv docs/System_Mount/docs/example.php examples
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
 
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-if [ -f %{_docdir}/%{name}-%{version}/optional-packages.txt ]; then
-	cat %{_docdir}/%{name}-%{version}/optional-packages.txt
-fi
+%post -p <lua>
+%pear_package_print_optionalpackages
 
 %files
 %defattr(644,root,root,755)
-%doc install.log
+%doc install.log optional-packages.txt
 %doc docs/%{_pearname}/*
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/%{_class}/*.php
+%{php_pear_dir}/System/Mount.php
+
+%{_examplesdir}/%{name}-%{version}

@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.php
 %define		_status		stable
 %define		_pearname	System_Mount
 Summary:	%{_pearname} - mount and unmount devices in fstab
